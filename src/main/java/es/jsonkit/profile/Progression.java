@@ -12,6 +12,10 @@ public class Progression {
 
 	private Boolean act5;
 
+	public Progression() {
+
+	}
+
 	/**
 	 * @return the act1
 	 */
