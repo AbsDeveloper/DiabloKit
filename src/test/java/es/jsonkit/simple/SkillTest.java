@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,7 +15,6 @@ import org.junit.Test;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import com.sun.istack.internal.logging.Logger;
 
 import es.jsonkit.profile.ability.HeroSkill;
 
@@ -53,7 +53,7 @@ public class SkillTest {
 			hs = g.fromJson(jsonReader, HeroSkill.class);
 
 			if (hs == null) {
-				LOGGER.severe("SkillTest --> El servicio no ha devuelto informacion");
+				LOGGER.error("SkillTest --> El servicio no ha devuelto informacion");
 				Assert.fail();
 			}
 			else {
@@ -61,7 +61,7 @@ public class SkillTest {
 			}
 		}
 		catch (IOException ioe) {
-			LOGGER.severe("SkillTest --> La informacion no pudo ser recogida, servicio no disponible " + ioe.getMessage());
+			LOGGER.error("SkillTest --> La informacion no pudo ser recogida, servicio no disponible " + ioe.getMessage());
 			Assert.fail();
 		}
 
