@@ -12,9 +12,9 @@ import java.util.List;
  */
 public class Skills {
 
-	private final List<AbilityActive> active;
+	private List<AbilityActive> active;
 
-	private final List<AbilityPasive> passive;
+	private List<AbilityPasive> passive;
 
 	public Skills() {
 		this.active = new ArrayList<AbilityActive>();
@@ -26,14 +26,14 @@ public class Skills {
 	 * @return the active
 	 */
 	public List<AbilityActive> getActive() {
-		return active;
+		return this.active;
 	}
 
 	/**
 	 * @return the passive
 	 */
 	public List<AbilityPasive> getPassive() {
-		return passive;
+		return this.passive;
 	}
 
 	/*
@@ -43,7 +43,7 @@ public class Skills {
 	 */
 	@Override
 	public String toString() {
-		return "Skills [active=" + active + ", passive=" + passive + "]";
+		return "Skills [active=" + this.active + ", passive=" + this.passive + "]";
 	}
 
 }
