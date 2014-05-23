@@ -3,6 +3,7 @@
  */
 package es.jsonkit.diablo.data;
 
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -67,6 +68,10 @@ public class HeroItemsTest {
 		}
 		catch (MalformedURLException mue) {
 			HeroItemsTest.LOGGER.error("La informacion no pudo ser recogida, se ha especificado un protocolo desconocido " + mue.getMessage());
+			Assert.fail();
+		}
+		catch (IOException ioe) {
+			HeroItemsTest.LOGGER.error("La informacion no pudo ser recogida, servicio no disponible " + ioe.getMessage());
 			Assert.fail();
 		}
 		catch (Exception e) {

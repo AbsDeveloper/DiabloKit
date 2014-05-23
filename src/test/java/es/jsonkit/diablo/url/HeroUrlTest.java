@@ -6,7 +6,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.jsonkit.profile.Hero;
 import es.jsonkit.profile.ability.HeroSkill;
+import es.jsonkit.url.constantes.Constantes;
 
 /**
  * http://{server}.battle.net/api/d3/profile/{battleTag}/
@@ -54,6 +56,24 @@ public class HeroUrlTest {
 
 		Assert.assertEquals(HeroUrlTest.EXPECTED_URL, hero.generateUrl());
 
+	}
+
+	private String generateUrl(final Hero hero) {
+		StringBuilder strUrl = new StringBuilder();
+		strUrl.append(Constantes.URL_HTTP);
+		strUrl.append(hero.getServer());
+		strUrl.append(Constantes.URL_PUNTO);
+		strUrl.append(Constantes.URL_BATTLE);
+		strUrl.append(Constantes.URL_NET);
+		strUrl.append(Constantes.URL_API);
+		strUrl.append(Constantes.URL_DIABLO3);
+		strUrl.append(Constantes.URL_PROFILE);
+		strUrl.append(hero.getBattleTag());
+		strUrl.append(Constantes.URL_BARRA);
+		strUrl.append(Constantes.URL_HERO);
+		strUrl.append(HeroSkill.END_OF_REQUEST);
+		strUrl.append(hero.getId());
+		return strUrl.toString();
 	}
 
 }

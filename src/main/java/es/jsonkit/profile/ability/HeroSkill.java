@@ -24,6 +24,10 @@ public class HeroSkill extends Hero {
 		super(battleTag, server, heroId);
 	}
 
+	public HeroSkill(final String battleTag, final Integer heroId) {
+		super(battleTag, heroId);
+	}
+
 	/**
 	 * @return the skills
 	 */

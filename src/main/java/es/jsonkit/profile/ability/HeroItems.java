@@ -15,6 +15,10 @@ public class HeroItems extends Hero {
 		super(battleTag, server, heroId);
 	}
 
+	public HeroItems(final String battleTag, final Integer heroId) {
+		super(battleTag, heroId);
+	}
+
 	/**
 	 * @return the items
 	 */

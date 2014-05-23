@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import es.jsonkit.profile.Profile;
+import es.jsonkit.url.constantes.Constantes;
 
 /**
  * http://{server}.battle.net/api/d3/profile/{battleTag}/
@@ -53,4 +54,18 @@ public class ProfileUrlTest {
 
 	}
 
+	private String generateUrl(final Profile profile) {
+		StringBuilder strUrl = new StringBuilder();
+		strUrl.append(Constantes.URL_HTTP);
+		strUrl.append(profile.getServer());
+		strUrl.append(Constantes.URL_PUNTO);
+		strUrl.append(Constantes.URL_BATTLE);
+		strUrl.append(Constantes.URL_NET);
+		strUrl.append(Constantes.URL_API);
+		strUrl.append(Constantes.URL_DIABLO3);
+		strUrl.append(Constantes.URL_PROFILE);
+		strUrl.append(profile.getBattleTag());
+		strUrl.append(Profile.END_OF_REQUEST);
+		return strUrl.toString();
+	}
 }
