@@ -3,7 +3,7 @@ package es.jsonkit.profile;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Profile {
+public class Profile extends IDiabloObject {
 
 	public static final String END_OF_REQUEST = "/";
 	private List<Hero> heroes = new ArrayList<Hero>();
@@ -14,32 +14,27 @@ public class Profile {
 	private List<FallenHero> fallenHeroes = new ArrayList<FallenHero>();
 	private Integer paragonLevel;
 	private Integer paragonLevelHardcore;
-	private String battleTag;
 	private Progression progression;
 
 	public Profile() {
-		this.inicializarProfile();
 	}
 
-	private void inicializarProfile() {
-		this.heroes = new ArrayList<Hero>();
-		this.kills = new Kills();
-		this.timePlayed = new TimePlayed();
-		this.progression = new Progression();
+	public Profile(final String battleTag) {
+		super(battleTag);
 	}
 
 	/**
 	 * @return the heroes
 	 */
 	public List<Hero> getHeroes() {
-		return heroes;
+		return this.heroes;
 	}
 
 	/**
 	 * @param heroes
 	 *            the heroes to set
 	 */
-	public void setHeroes(List<Hero> heroes) {
+	public void setHeroes(final List<Hero> heroes) {
 		this.heroes = heroes;
 	}
 
@@ -47,14 +42,14 @@ public class Profile {
 	 * @return the lastHeroPlayed
 	 */
 	public Integer getLastHeroPlayed() {
-		return lastHeroPlayed;
+		return this.lastHeroPlayed;
 	}
 
 	/**
 	 * @param lastHeroPlayed
 	 *            the lastHeroPlayed to set
 	 */
-	public void setLastHeroPlayed(Integer lastHeroPlayed) {
+	public void setLastHeroPlayed(final Integer lastHeroPlayed) {
 		this.lastHeroPlayed = lastHeroPlayed;
 	}
 
@@ -62,14 +57,14 @@ public class Profile {
 	 * @return the lastUpdated
 	 */
 	public Integer getLastUpdated() {
-		return lastUpdated;
+		return this.lastUpdated;
 	}
 
 	/**
 	 * @param lastUpdated
 	 *            the lastUpdated to set
 	 */
-	public void setLastUpdated(Integer lastUpdated) {
+	public void setLastUpdated(final Integer lastUpdated) {
 		this.lastUpdated = lastUpdated;
 	}
 
@@ -77,14 +72,14 @@ public class Profile {
 	 * @return the kills
 	 */
 	public Kills getKills() {
-		return kills;
+		return this.kills;
 	}
 
 	/**
 	 * @param kills
 	 *            the kills to set
 	 */
-	public void setKills(Kills kills) {
+	public void setKills(final Kills kills) {
 		this.kills = kills;
 	}
 
@@ -92,14 +87,14 @@ public class Profile {
 	 * @return the timePlayed
 	 */
 	public TimePlayed getTimePlayed() {
-		return timePlayed;
+		return this.timePlayed;
 	}
 
 	/**
 	 * @param timePlayed
 	 *            the timePlayed to set
 	 */
-	public void setTimePlayed(TimePlayed timePlayed) {
+	public void setTimePlayed(final TimePlayed timePlayed) {
 		this.timePlayed = timePlayed;
 	}
 
@@ -107,14 +102,14 @@ public class Profile {
 	 * @return the fallenHeroes
 	 */
 	public List<FallenHero> getFallenHeroes() {
-		return fallenHeroes;
+		return this.fallenHeroes;
 	}
 
 	/**
 	 * @param fallenHeroes
 	 *            the fallenHeroes to set
 	 */
-	public void setFallenHeroes(List<FallenHero> fallenHeroes) {
+	public void setFallenHeroes(final List<FallenHero> fallenHeroes) {
 		this.fallenHeroes = fallenHeroes;
 	}
 
@@ -122,14 +117,14 @@ public class Profile {
 	 * @return the paragonLevel
 	 */
 	public Integer getParagonLevel() {
-		return paragonLevel;
+		return this.paragonLevel;
 	}
 
 	/**
 	 * @param paragonLevel
 	 *            the paragonLevel to set
 	 */
-	public void setParagonLevel(Integer paragonLevel) {
+	public void setParagonLevel(final Integer paragonLevel) {
 		this.paragonLevel = paragonLevel;
 	}
 
@@ -137,44 +132,29 @@ public class Profile {
 	 * @return the paragonLevelHardcore
 	 */
 	public Integer getParagonLevelHardcore() {
-		return paragonLevelHardcore;
+		return this.paragonLevelHardcore;
 	}
 
 	/**
 	 * @param paragonLevelHardcore
 	 *            the paragonLevelHardcore to set
 	 */
-	public void setParagonLevelHardcore(Integer paragonLevelHardcore) {
+	public void setParagonLevelHardcore(final Integer paragonLevelHardcore) {
 		this.paragonLevelHardcore = paragonLevelHardcore;
-	}
-
-	/**
-	 * @return the battleTag
-	 */
-	public String getBattleTag() {
-		return battleTag;
-	}
-
-	/**
-	 * @param battleTag
-	 *            the battleTag to set
-	 */
-	public void setBattleTag(String battleTag) {
-		this.battleTag = battleTag;
 	}
 
 	/**
 	 * @return the progression
 	 */
 	public Progression getProgression() {
-		return progression;
+		return this.progression;
 	}
 
 	/**
 	 * @param progression
 	 *            the progression to set
 	 */
-	public void setProgression(Progression progression) {
+	public void setProgression(final Progression progression) {
 		this.progression = progression;
 	}
 
@@ -185,9 +165,15 @@ public class Profile {
 	 */
 	@Override
 	public String toString() {
-		return "Profile [heroes=" + heroes + ", lastHeroPlayed=" + lastHeroPlayed + ", lastUpdated=" + lastUpdated + ", kills=" + kills + ", timePlayed=" + timePlayed
-				+ ", fallenHeroes=" + fallenHeroes + ", paragonLevel=" + paragonLevel + ", paragonLevelHardcore=" + paragonLevelHardcore + ", battleTag=" + battleTag
-				+ ", progression=" + progression + "]";
+		return "Profile [heroes=" + this.heroes + ", lastHeroPlayed=" + this.lastHeroPlayed + ", lastUpdated=" + this.lastUpdated + ", kills=" + this.kills + ", timePlayed="
+				+ this.timePlayed + ", fallenHeroes=" + this.fallenHeroes + ", paragonLevel=" + this.paragonLevel + ", paragonLevelHardcore=" + this.paragonLevelHardcore
+				+ ", battleTag=" + "this.progression=" + this.progression + "]";
+	}
+
+	@Override
+	public String generateUrl() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
