@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
  *         Esta clase recopila toda la informacion general del heroe.
  * 
  */
-public class Hero {
+public class Hero extends IDiabloObject {
 
 	/**
 	 * Nivel de paragon
@@ -58,18 +58,30 @@ public class Hero {
 	@SerializedName("last-updated")
 	private Integer lastUpdated;
 
+	public Hero() {
+		super();
+	}
+
+	public Hero(final String battleTag, final Integer heroId) {
+		super(battleTag, heroId);
+	}
+
+	public Hero(final String battleTag, final String server, final Integer heroId) {
+		super(battleTag, server, heroId);
+	}
+
 	/**
 	 * @return the paragonLevel
 	 */
 	public Integer getParagonLevel() {
-		return paragonLevel;
+		return this.paragonLevel;
 	}
 
 	/**
 	 * @param paragonLevel
 	 *            the paragonLevel to set
 	 */
-	public void setParagonLevel(Integer paragonLevel) {
+	public void setParagonLevel(final Integer paragonLevel) {
 		this.paragonLevel = paragonLevel;
 	}
 
@@ -77,14 +89,14 @@ public class Hero {
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	/**
 	 * @param name
 	 *            the name to set
 	 */
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name = name;
 	}
 
@@ -92,14 +104,14 @@ public class Hero {
 	 * @return the id
 	 */
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
 	/**
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(final Integer id) {
 		this.id = id;
 	}
 
@@ -107,14 +119,14 @@ public class Hero {
 	 * @return the level
 	 */
 	public Integer getLevel() {
-		return level;
+		return this.level;
 	}
 
 	/**
 	 * @param level
 	 *            the level to set
 	 */
-	public void setLevel(Integer level) {
+	public void setLevel(final Integer level) {
 		this.level = level;
 	}
 
@@ -122,14 +134,14 @@ public class Hero {
 	 * @return the hardcore
 	 */
 	public Boolean getHardcore() {
-		return hardcore;
+		return this.hardcore;
 	}
 
 	/**
 	 * @param hardcore
 	 *            the hardcore to set
 	 */
-	public void setHardcore(Boolean hardcore) {
+	public void setHardcore(final Boolean hardcore) {
 		this.hardcore = hardcore;
 	}
 
@@ -137,14 +149,14 @@ public class Hero {
 	 * @return the gender
 	 */
 	public Integer getGender() {
-		return gender;
+		return this.gender;
 	}
 
 	/**
 	 * @param gender
 	 *            the gender to set
 	 */
-	public void setGender(Integer gender) {
+	public void setGender(final Integer gender) {
 		this.gender = gender;
 	}
 
@@ -152,14 +164,14 @@ public class Hero {
 	 * @return the dead
 	 */
 	public Boolean getDead() {
-		return dead;
+		return this.dead;
 	}
 
 	/**
 	 * @param dead
 	 *            the dead to set
 	 */
-	public void setDead(Boolean dead) {
+	public void setDead(final Boolean dead) {
 		this.dead = dead;
 	}
 
@@ -167,14 +179,14 @@ public class Hero {
 	 * @return the lastUpdated
 	 */
 	public Integer getLastUpdated() {
-		return lastUpdated;
+		return this.lastUpdated;
 	}
 
 	/**
 	 * @param lastUpdated
 	 *            the lastUpdated to set
 	 */
-	public void setLastUpdated(Integer lastUpdated) {
+	public void setLastUpdated(final Integer lastUpdated) {
 		this.lastUpdated = lastUpdated;
 	}
 
@@ -185,8 +197,14 @@ public class Hero {
 	 */
 	@Override
 	public String toString() {
-		return "Hero [paragonLevel=" + paragonLevel + ", name=" + name + ", id=" + id + ", level=" + level + ", hardcore=" + hardcore + ", gender=" + gender + ", dead=" + dead
-				+ ", clase=" + clase + ", lastUpdated=" + lastUpdated + "]";
+		return "Hero [paragonLevel=" + this.paragonLevel + ", name=" + this.name + ", id=" + this.id + ", level=" + this.level + ", hardcore=" + this.hardcore + ", gender="
+				+ this.gender + ", dead=" + this.dead + ", clase=" + this.clase + ", lastUpdated=" + this.lastUpdated + "]";
+	}
+
+	@Override
+	public String generateUrl() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,42 +1,33 @@
-/**
- * 
- */
 package es.jsonkit.profile.ability;
 
 import es.jsonkit.profile.Hero;
+import es.jsonkit.profile.item.Items;
 import es.jsonkit.url.constantes.Constantes;
 
-/**
- * @author Adrian
- * 
- */
-public class HeroSkill extends Hero {
+public class HeroItems extends Hero {
+	private Items items;
 
-	public static final String END_OF_REQUEST = "";
-
-	private Skills skills;
-
-	public HeroSkill() {
+	public HeroItems() {
 		super();
 	}
 
-	public HeroSkill(final String battleTag, final String server, final Integer heroId) {
+	public HeroItems(final String battleTag, final String server, final Integer heroId) {
 		super(battleTag, server, heroId);
 	}
 
 	/**
-	 * @return the skills
+	 * @return the items
 	 */
-	public Skills getSkills() {
-		return this.skills;
+	public Items getItems() {
+		return this.items;
 	}
 
 	/**
-	 * @param skills
-	 *            the skills to set
+	 * @param items
+	 *            the items to set
 	 */
-	public void setSkills(final Skills skills) {
-		this.skills = skills;
+	public void setItems(final Items items) {
+		this.items = items;
 	}
 
 	/*
@@ -46,7 +37,7 @@ public class HeroSkill extends Hero {
 	 */
 	@Override
 	public String toString() {
-		return "HeroSkill [skills=" + this.skills + "]";
+		return "HeroItems [items=" + this.items + "]";
 	}
 
 	@Override
@@ -67,4 +58,5 @@ public class HeroSkill extends Hero {
 		strUrl.append(this.getHeroId());
 		return strUrl.toString();
 	}
+
 }
